@@ -1,0 +1,69 @@
+---
+title: "Test of impact package for use in n of 1 experiment with electronic momentary assesment"
+author: "Jakob A. Kaminski"
+date: "2 4 2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Impact estimate in n of 1 experiment
+
+Dummy time series data of n of 1 experiment:
+
+```{r readindata, echo=FALSE, include=FALSE}
+
+time.points <- seq.Date(as.Date("2021-01-01"), by = 1, length.out = 366)
+
+library(readr)
+data <- read_csv("dummydata.csv", col_types = cols(X1 = col_skip()))
+library(zoo)
+data<-zoo(cbind(symptom1=data$V1, symptom2=data$V2), time.points)
+
+```
+
+```{r display data, echo=FALSE, include=TRUE}
+
+head(data)
+```
+
+## Plots
+
+Time series plot of dummy data of two electronic momentary assessment scales of hypothetical symptoms with vertical line at date of medication start (time point of impact, 2021-05-02) :
+
+```{r plot, echo=FALSE,warning=FALSE}
+library(ggplot2)
+autoplot(data, label=T, facets = NULL )+
+  geom_vline(xintercept = as.numeric(as.Date("2021-05-02")), 
+             color = "black", 
+             linetype=4)+theme_classic() 
+```
+
+
+```{r resultsplot, echo=FALSE,warning=FALSE, include=FALSE}
+#define pre and post period
+pre.period <- as.Date(c("2021-01-01", "2021-05-01"))
+post.period <- as.Date(c("2021-05-02", "2021-06-02"))
+library(CausalImpact)
+#estimate causal impact
+impact <- CausalImpact(data,  pre.period, post.period)
+
+```
+
+
+Impact plot of impact estimate at medication intake according to K. Brodersen Annals of Applied Statistics 2015:
+
+```{r impactplot, echo=FALSE,warning=FALSE}
+plot(impact)
+
+```
+
+
+Summary from impact estimation: 
+```{r resultssummary, echo=FALSE, include=TRUE}
+summary(impact)
+summary(impact, "report")
+```
+
