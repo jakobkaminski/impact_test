@@ -11,13 +11,11 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Possible paths on how medication symptoms and side-effects are related
-
+We here show a simplistic path model on how symptoms and side-effects could be related.
 ![Antipsychotic medication](impact_model2.png){width=65%}
 
-![Antidepressive medication](impact_model3.png){width=65%}
 
-
-
+Due to this complex interactions and long intervals (3-6 weeks) between outpatient visits and side-effects that occur at shorter time periods (within hours and after a few days) it is hard to disentanle cause and consequences of symptom and side-effects when starting medication.  
 
 ```{r readindata, echo=FALSE, include=FALSE}
 
@@ -31,9 +29,11 @@ data<-zoo(cbind(symptom1=data$V1, symptom2=data$V2), time.points)
 ```
 
 
-## Impact estimate in n of 1 experiment
+## Electronic momentary assesment allows symptom monitoring and evaluation
+Day by day smartphone based symptom assesment and a visualisation of the course for the symptomsmight allow a better evaluation of sympotms at a follow-up appointment. 
 
-Test of impact package for use in n of 1 experiment with electronic momentary assesment. Dummy time series data of n of 1 experiment:
+## Impact for EMA data
+Test of impact package for use in n of 1 experiment with electronic momentary assesment. We here created a dummy time series data of n of 1 experiment of two symptoms that were tracked every day on a scale from 0 to 3:
 
 ```{r display data, echo=FALSE, include=TRUE}
 
@@ -63,7 +63,7 @@ impact <- CausalImpact(data,  pre.period, post.period)
 
 ```
 
-
+For a statistical evaluation of the medication effect we looked at the period from medication start to four weeks therafter. With the impact package we are able to infere a quantitative estimate of the counterfactual.
 Impact plot of impact estimate at medication intake according to K. Brodersen Annals of Applied Statistics 2015 https://arxiv.org/abs/1506.00356 for documentation http://google.github.io/CausalImpact/CausalImpact.html:
 
 ```{r impactplot, echo=FALSE,warning=FALSE}
