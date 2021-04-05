@@ -25,6 +25,11 @@ data<-zoo(cbind(symptom1=data$V1, symptom2=data$V2), time.points)
 
 ```
 
+
+## Impact estimate in n of 1 experiment
+
+Test of impact package for use in n of 1 experiment with electronic momentary assesment. Dummy time series data of n of 1 experiment:
+
 ```{r display data, echo=FALSE, include=TRUE}
 
 head(data)
