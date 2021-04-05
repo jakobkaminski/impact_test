@@ -1,5 +1,6 @@
 ---
 title: "Test of impact package for use in n of 1 experiment with electronic momentary assesment"
+knit: (function(inputFile, encoding) { out_dir<-'docs'; rmarkdown::render(inputFile, encoding=encoding, output_file=file.path(dirname(inputFile), out_dir, 'index.html')) })
 author: "Jakob A. Kaminski"
 date: "2 4 2021"
 output: html_document
