@@ -10,9 +10,14 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Impact estimate in n of 1 experiment
+## Possible paths on how medication symptoms and side-effects are related
 
-Dummy time series data of n of 1 experiment:
+![Antipsychotic medication](impact_model2.png){width=65%}
+
+![Antidepressive medication](impact_model3.png){width=65%}
+
+
+
 
 ```{r readindata, echo=FALSE, include=FALSE}
 
@@ -59,7 +64,7 @@ impact <- CausalImpact(data,  pre.period, post.period)
 ```
 
 
-Impact plot of impact estimate at medication intake according to K. Brodersen Annals of Applied Statistics 2015:
+Impact plot of impact estimate at medication intake according to K. Brodersen Annals of Applied Statistics 2015 https://arxiv.org/abs/1506.00356 for documentation http://google.github.io/CausalImpact/CausalImpact.html:
 
 ```{r impactplot, echo=FALSE,warning=FALSE}
 plot(impact)
