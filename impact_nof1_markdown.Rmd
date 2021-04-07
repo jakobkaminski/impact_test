@@ -15,7 +15,7 @@ We here show a simplistic path model on how symptoms and side-effects could be r
 ![Antipsychotic medication](impact_model2.png){width=65%}
 
 
-Due to this complex interactions and long intervals (3-6 weeks) between outpatient visits and side-effects that occur at shorter time periods (within hours and after a few days) it is hard to disentanle cause and consequences of symptom and side-effects when starting medication.  
+Due to this complex interactions and long intervals (2-6 weeks) between outpatient visits and side-effects that occur at shorter time periods (within hours and after a few days) it is hard to disentanle cause and consequences of symptom and side-effects when starting medication.  
 
 ```{r readindata, echo=FALSE, include=FALSE}
 
@@ -56,14 +56,14 @@ autoplot(data, label=T, facets = NULL )+
 ```{r resultsplot, echo=FALSE,warning=FALSE, include=FALSE}
 #define pre and post period
 pre.period <- as.Date(c("2021-01-01", "2021-05-01"))
-post.period <- as.Date(c("2021-05-02", "2021-06-02"))
+post.period <- as.Date(c("2021-05-02", "2021-05-15"))
 library(CausalImpact)
 #estimate causal impact
 impact <- CausalImpact(data,  pre.period, post.period)
 
 ```
 
-For a statistical evaluation of the medication effect we looked at the period from medication start to four weeks therafter. With the impact package we are able to infere a quantitative estimate of the counterfactual.
+For a statistical evaluation of the medication effect we looked at the period from medication start to two weeks therafter. With the impact package we are able to infere a quantitative estimate of the counterfactual.
 Impact plot of impact estimate at medication intake according to K. Brodersen Annals of Applied Statistics 2015 https://arxiv.org/abs/1506.00356 for documentation http://google.github.io/CausalImpact/CausalImpact.html:
 
 ```{r impactplot, echo=FALSE,warning=FALSE}
