@@ -63,7 +63,7 @@ impact <- CausalImpact(data,  pre.period, post.period)
 
 ```
 
-For a statistical evaluation of the medication effect we looked at the period from medication start to two weeks therafter. With the impact package we are able to infere a quantitative estimate of the counterfactual.
+For a statistical evaluation of the medication effect we looked at the period from medication start to two weeks therafter. With the impact package we are able to infer a quantitative estimate of the counterfactual via a synthetic control and thus estimate the causal effect.
 Impact plot of impact estimate at medication intake according to K. Brodersen Annals of Applied Statistics 2015 https://arxiv.org/abs/1506.00356 for documentation http://google.github.io/CausalImpact/CausalImpact.html:
 
 ```{r impactplot, echo=FALSE,warning=FALSE}
@@ -72,7 +72,7 @@ plot(impact)
 ```
 
 
-Summary from impact estimation: 
+And here the narrative summary of the impact estimation: 
 ```{r resultssummary, echo=FALSE, include=TRUE}
 summary(impact)
 summary(impact, "report")
