@@ -15,7 +15,7 @@ We here show a simplistic path model on how symptoms and side-effects could be r
 ![Antipsychotic medication](impact_model2.png){width=65%}
 
 
-Due to this complex interactions and long intervals (2-6 weeks) between outpatient visits and side-effects that occur at shorter time periods (within hours and after a few days) it is hard to disentanle cause and consequences of symptom and side-effects when starting medication.  
+Due to this complex interactions, long intervals (2-6 weeks) between outpatient visits, and side-effects that occur at shorter time periods (within hours and after a few days) it is hard to disentangle cause and consequences of symptoms and side-effects when starting medication.  
 
 ```{r readindata, echo=FALSE, include=FALSE}
 
@@ -30,10 +30,10 @@ data<-zoo(cbind(symptom1=data$V1, symptom2=data$V2), time.points)
 
 
 ## Electronic momentary assesment allows symptom monitoring and evaluation
-Day by day smartphone based symptom assesment and a visualisation of the course for the symptomsmight allow a better evaluation of sympotms at a follow-up appointment. 
+Day by day smartphone based symptom assesment and a visualisation of the course for the symptoms might allow a better evaluation of sympotms at a follow-up appointment. 
 
 ## Impact for EMA data
-Test of impact package for use in n of 1 experiment with electronic momentary assesment. We here created a dummy time series data of n of 1 experiment of two symptoms that were tracked every day on a scale from 0 to 3:
+We here want to test the impact package for use in an n of 1 experiment with electronic momentary assesment. We here created a dummy time series data set. It includes two symptoms that were tracked every day on a scale from 0 to 3:
 
 ```{r display data, echo=FALSE, include=TRUE}
 
